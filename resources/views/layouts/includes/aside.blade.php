@@ -76,6 +76,17 @@
                             <span class="menu-title"> الحركات</span>
                         </a>
                     </div>
+                <div class="menu-item">
+                    <a class="menu-link" href="{{route('sms.index')}}">
+										<span class="menu-icon">
+											<!--begin::Svg Icon | path: icons/duotone/Design/PenAndRuller.svg-->
+                                            <i class="fa fa-send"></i>
+
+                                            <!--end::Svg Icon-->
+										</span>
+                        <span class="menu-title"> الرسائل</span>
+                    </a>
+                </div>
 
 
 
