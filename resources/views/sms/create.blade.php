@@ -52,7 +52,6 @@
 @endsection
 @push('js')
     @include("parts.sweetCreate", ['route' => route('sms.store'),'method'=>'post','redirect'=>route("sms.index")])
-
     @include("parts.searchID")
 
 

@@ -97,6 +97,5 @@
 @push('js')
     <script src="{{asset('assets/js/jquery.dataTables.min.js')}}"></script>
 
-    @include('transactions._datatable')
-    @include("parts.sweetDelete", ['route' => route('transactions.destroy', ['transaction' => ':id'])])
+    @include('sms._datatable')
 @endpush

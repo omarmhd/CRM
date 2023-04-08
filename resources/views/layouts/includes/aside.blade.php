@@ -80,7 +80,7 @@
                     <a class="menu-link" href="{{route('sms.index')}}">
 										<span class="menu-icon">
 											<!--begin::Svg Icon | path: icons/duotone/Design/PenAndRuller.svg-->
-                                            <i class="fa fa-send"></i>
+                                            <i class="fa fa-sms"></i>
 
                                             <!--end::Svg Icon-->
 										</span>

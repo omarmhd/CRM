@@ -19,10 +19,10 @@
 
 
 
-                { data: 'DT_RowIndex', 'orderable': true, 'searchable': false },
+                {data: 'DT_RowIndex', 'orderable': true, 'searchable': false },
                 {data: 'sender', name: 'sender'},
                 {data: 'content', name: 'content'},
-                {data: 'created_at', name: 'created_at'},
+                {data: 'created_at', name: 'created_at'}
 
             ]
 

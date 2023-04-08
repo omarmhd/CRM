@@ -19,9 +19,9 @@ class SmsController extends Controller
     public function index(Request  $request)
     {
         if ($request->ajax()) {
+
             $data = Sms::latest()->get();
-            return DataTables::of($data)
-                ->addIndexColumn()
+            return DataTables::of($data)->addIndexColumn()
              ->make(true);
         }
 
