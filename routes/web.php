@@ -21,9 +21,9 @@ use App\Http\Controllers\EmployeeController;
 
 
 
-route::group(["prefix"=>"admin" ,"middleware"=>'auth'],function (){
+route::group(["middleware"=>'auth'],function (){
 
-    Route::get("/dashboard",[\App\Http\Controllers\DashboardController::class,'index'])->name('dashboard');
+    Route::get("/",[\App\Http\Controllers\DashboardController::class,'index'])->name('dashboard');
     Route::resource("/clients",\App\Http\Controllers\ClientController::class);
     Route::resource("/transactions",\App\Http\Controllers\TransactionController::class);
     Route::resource("/sms",\App\Http\Controllers\SmsController::class);
