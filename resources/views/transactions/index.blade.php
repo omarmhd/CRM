@@ -68,13 +68,15 @@
                        class="table table-bordered table-hover table-row-gray-300 align-middle gs-0 gy-3 border-1 text-center fs-7">
                     <!--begin::Table head-->
                     <thead>
+
                     <tr class="fw-bolder  bg-secondary text-muted ">
                         <th class="w-10 text-center"  style="width:1%">#</th>
-                        <th class="w-10  text-center"  style="width:10%">الإسم المستخدم</th>
-                        <th class="w-10 text-center"  style="width:25%">الاسم رباعي</th>
-                        <th class="w-10  text-center" style="width:15%">البريد الإلكتروني</th>
-
-                        <th class="w-10  text-center" style="width:10%">الدور</th>
+                        <th class="w-10 text-center"  style="width:1%">رقم المعرف</th>
+                        <th class="w-10  text-center"  style="width:10%">اسم الزبون</th>
+                        <th class="w-10 text-center"  style="width:25%">النوع</th>
+                        <th class="w-10  text-center" style="width:15%">السعر</th>
+                        <th class="w-10  text-center" style="width:15%">القراط</th>
+                        <th class="w-10  text-center" style="width:15%">الوزن</th>
                         <th class="min-w-100px text-center" style="width:10%">تاريخ الإضافة</th>
                         <th class="min-w-124px text-center" style="width:30%">الإجراءات</th>
 

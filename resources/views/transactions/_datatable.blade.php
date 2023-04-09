@@ -17,13 +17,13 @@
             },
             columns: [
 
-
-
                 { data: 'DT_RowIndex', 'orderable': true, 'searchable': false },
+                {data: 'client_id', name: 'client_id'},
                 {data: 'name', name: 'name'},
-                {data: 'full_name', name: 'full_name'},
-                {data: 'email', name: 'email'},
-                {data: 'role', name: 'role'},
+                {data: 'type', name: 'type'},
+                {data: 'price', name: 'price'},
+                {data: 'karat', name: 'karat'},
+                {data: 'wight', name: 'wight'},
                 {data: 'created_at', name: 'created_at'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ]
