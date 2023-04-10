@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Client;
 use App\Models\Sms;
+use App\Notifications\VonageMessage;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -45,7 +49,8 @@ class SmsController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
-     */    public function store(Request $request)
+     */
+    public function store(Request $request)
 {
 
     $validator = Validator::make($request->all(), [
@@ -57,12 +62,50 @@ class SmsController extends Controller
     }
 
 
-    $sms=Sms::create(['content'=>$request->content,'sender'=>"f"]);
+    $clients=Client::all();
+    foreach ($clients as $client){
 
-    if ($sms){
-        return response()->json(['success' => true, 'message' => "تمت الارسال بنجاح"]);
-    }
-    return response()->json(['success' => false, 'message' => " لم تتم العملية"]);
+            $response = Http::get('http://www.hotsms.ps/sendbulksms.php', [
+                'user_name' => 'Rami Dabous',
+                'user_pass' => '3324878',
+                'sender' =>'Rami Dabous',
+                'mobile' => $client->phone,
+                'type' => 0,
+                'text' => $request->content
+            ]);
+
+
+
+            switch ($response->body()) {
+                case '1001':
+                    break;
+                case '1000':
+                    return response()->json(['success' => false, 'message' => " Balance in your account"]);
+                    break;
+                case '2000':
+                    return response()->json(['success' => false, 'message' => "Invalid value in username or password field."]);
+                    break;
+                case '3000':
+                    return response()->json(['success' => false, 'message' => "Invalid type."]);
+                    break;
+                case '4000':
+                    return response()->json(['success' => false, 'message' => "Invalid URL Error, This means that one of the parameters was not provided or left blank."]);
+                    break;
+                case '5000':
+                    return response()->json(['success' => false, 'message' => "Countries Not Covers or Mobile Empty."]);
+                case '6000':
+                    return response()->json(['success' => false, 'message' => "Invalid sender name."]);
+                    break;
+                default:
+                    return response()->json(['success' => false, 'message' => 'Unknown response code: ' . $response->body()]);
+                    break;
+            }
+        }
+
+    $sms=Sms::create(['content'=>$request->content,'sender'=>auth()->user()->name]);
+    return response()->json(['success' => true, 'message' => "تمت الارسال بنجاح"]);
+
+
 
 
 }
