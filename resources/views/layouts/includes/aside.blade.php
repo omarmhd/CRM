@@ -31,7 +31,7 @@
             <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500" id="#kt_aside_menu" data-kt-menu="true">
 
 
-
+                @can("administrator")
                 <div class="menu-item">
                     <a class="menu-link" href="{{route('dashboard')}}">
 										<span class="menu-icon">
@@ -65,7 +65,7 @@
                     </a>
                 </div>
 
-                    <div class="menu-item">
+                <div class="menu-item">
                         <a class="menu-link" href="{{route('transactions.index')}}">
 										<span class="menu-icon">
 											<!--begin::Svg Icon | path: icons/duotone/Design/PenAndRuller.svg-->
@@ -87,6 +87,29 @@
                         <span class="menu-title"> الرسائل</span>
                     </a>
                 </div>
+                @endcan
+
+                @can("employee")
+                        <div class="menu-item">
+                            <a class="menu-link" href="{{route('clients.create')}}">
+										<span class="menu-icon">
+                                            <i class="fa fa-user"></i>
+										</span>
+                                <span class="menu-title"> إضافة زبون</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link" href="{{route('transactions.create')}}">
+										<span class="menu-icon">
+											<!--begin::Svg Icon | path: icons/duotone/Design/PenAndRuller.svg-->
+                                            <i class="fa fa-check"></i>
+
+                                            <!--end::Svg Icon-->
+										</span>
+                                <span class="menu-title">إضافة حركة</span>
+                            </a>
+                        </div>
+                 @endcan
 
 
 
