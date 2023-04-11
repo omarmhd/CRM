@@ -7,6 +7,7 @@ use App\Models\Transaction;
 use App\Models\User;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
@@ -93,7 +94,7 @@ class TransactionController extends Controller
     }
 
     public function edit($id){
-
+        abort_if(Gate::none(['administrator']), 403);
 
         $transaction=Transaction::findorfail($id);
         return view("admin.transactions.edit", compact("transaction"));
@@ -101,7 +102,7 @@ class TransactionController extends Controller
     }
     public function update(Request $request,$id)
     {
-
+        abort_if(Gate::none(['administrator']), 403);
         $validator = Validator::make($request->all(), [
             'client_id'=>"required|exists:clients,id",
             'name'=>'required',
@@ -126,6 +127,7 @@ class TransactionController extends Controller
     }
 
     public function  destroy($id){
+        abort_if(Gate::none(['administrator']), 403);
         $transaction=Transaction::findorfail($id);
         $transaction->delete();
         return response()->json(['success' => true, 'message' => "تم الحذف بنجاح"]);

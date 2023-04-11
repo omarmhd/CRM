@@ -49,7 +49,7 @@
                     <a class="menu-link" href="{{route('users.index')}}">
 										<span class="menu-icon">
 											<!--begin::Svg Icon | path: icons/duotone/Design/PenAndRuller.svg-->
-                                            <i class="fa fa-home"></i>
+                                            <i class="fa fa-user"></i>
 
                                             <!--end::Svg Icon-->
 										</span>
@@ -59,7 +59,7 @@
                 <div class="menu-item">
                     <a class="menu-link" href="{{route('clients.index')}}">
 										<span class="menu-icon">
-                                            <i class="fa fa-home"></i>
+                                            <i class="fa fa-user"></i>
 										</span>
                         <span class="menu-title">إدارة الزبائن</span>
                     </a>

@@ -41,6 +41,7 @@
                     <!--end::Section-->
                     <!--begin::Badge-->
                     <span class="">
+                        <a href="{{route("users.index")}}">{{$users}}</a>
 													<!--begin::Svg Icon | path: icons/duotune/arrows/arr066.svg-->
 
                         <!--end::Svg Icon--></span>
@@ -50,7 +51,121 @@
             </div>
             <!--end::Card widget 2-->
         </div>
+        <div class="col-sm-6 col-xl-2 mb-xl-10">
+            <!--begin::Card widget 2-->
+            <div class="card h-lg-100">
+                <!--begin::Body-->
+                <div class="card-body d-flex justify-content-between align-items-start flex-column">
+                    <!--begin::Icon-->
+                    <div class="m-0">
+                        <!--begin::Svg Icon | path: icons/duotune/maps/map004.svg-->
 
+                        <i class= "fa fa-user fs-2"></i>
+
+                        <!--end::Svg Icon-->
+                    </div>
+                    <!--end::Icon-->
+                    <!--begin::Section-->
+                    <div class="d-flex flex-column my-7">
+                        <!--begin::Number-->
+                    {{--                        <span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">{{$users_count}}</span>--}}
+                    <!--end::Number-->
+                        <!--begin::Follower-->
+                        <div class="m-0">
+                            <span class="fw-semibold fs-6 text-gray-400">عدد الزبائن</span>
+                        </div>
+                        <!--end::Follower-->
+                    </div>
+                    <!--end::Section-->
+                    <!--begin::Badge-->
+                    <span class="">
+                        <a href="{{route("transactions.index")}}">{{$clients}}</a>
+                        <!--begin::Svg Icon | path: icons/duotune/arrows/arr066.svg-->
+
+                        <!--end::Svg Icon--></span>
+                    <!--end::Badge-->
+                </div>
+                <!--end::Body-->
+            </div>
+            <!--end::Card widget 2-->
+        </div>
+
+        <div class="col-sm-6 col-xl-2 mb-xl-10">
+            <!--begin::Card widget 2-->
+            <div class="card h-lg-100">
+                <!--begin::Body-->
+                <div class="card-body d-flex justify-content-between align-items-start flex-column">
+                    <!--begin::Icon-->
+                    <div class="m-0">
+                        <!--begin::Svg Icon | path: icons/duotune/maps/map004.svg-->
+
+                        <i class= "fa fa-money-bill fs-2"></i>
+
+                        <!--end::Svg Icon-->
+                    </div>
+                    <!--end::Icon-->
+                    <!--begin::Section-->
+                    <div class="d-flex flex-column my-7">
+                        <!--begin::Number-->
+                    {{--                        <span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">{{$users_count}}</span>--}}
+                    <!--end::Number-->
+                        <!--begin::Follower-->
+                        <div class="m-0">
+                            <span class="fw-semibold fs-6 text-gray-400">عدد الحركات</span>
+                        </div>
+                        <!--end::Follower-->
+                    </div>
+                    <!--end::Section-->
+                    <!--begin::Badge-->
+                    <span class="">
+                        <a href="{{route("transactions.index")}}">{{$transactions}}</a>
+                        <!--begin::Svg Icon | path: icons/duotune/arrows/arr066.svg-->
+
+                        <!--end::Svg Icon--></span>
+                    <!--end::Badge-->
+                </div>
+                <!--end::Body-->
+            </div>
+            <!--end::Card widget 2-->
+        </div>
+        <div class="col-sm-6 col-xl-2 mb-xl-10">
+            <!--begin::Card widget 2-->
+            <div class="card h-lg-100">
+                <!--begin::Body-->
+                <div class="card-body d-flex justify-content-between align-items-start flex-column">
+                    <!--begin::Icon-->
+                    <div class="m-0">
+                        <!--begin::Svg Icon | path: icons/duotune/maps/map004.svg-->
+
+                        <i class= "fa fa-sms fs-2"></i>
+
+                        <!--end::Svg Icon-->
+                    </div>
+                    <!--end::Icon-->
+                    <!--begin::Section-->
+                    <div class="d-flex flex-column my-7">
+                        <!--begin::Number-->
+                    {{--                        <span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">{{$users_count}}</span>--}}
+                    <!--end::Number-->
+                        <!--begin::Follower-->
+                        <div class="m-0">
+                            <span class="fw-semibold fs-6 text-gray-400">عدد الرسائل</span>
+                        </div>
+                        <!--end::Follower-->
+                    </div>
+                    <!--end::Section-->
+                    <!--begin::Badge-->
+                    <span class="">
+                        <a href="{{route("sms.index")}}">{{$sms}}</a>
+                        <!--begin::Svg Icon | path: icons/duotune/arrows/arr066.svg-->
+
+                        <!--end::Svg Icon--></span>
+                    <!--end::Badge-->
+                </div>
+                <!--end::Body-->
+            </div>
+            <!--end::Card widget 2-->
+        </div>
         <!--begin::Col-->
 
         <!--end::Col-->

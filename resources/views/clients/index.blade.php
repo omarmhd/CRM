@@ -68,17 +68,17 @@
 
                     <tr class="fw-bolder  bg-secondary text-muted ">
                         <th class="w-10 text-center"  style="width:1%">#</th>
-                        <th class="w-10  text-center"  style="width:10%">الإسم الزبون</th>
-                        <th class="w-10  text-center" style="width:15%">رقم الجوال</th>
-                        <th class="w-10  text-center" style="width:10%">رقم الهوية</th>
-                        <th class="w-10  text-center" style="width:10%">الحالة الإجتماعية</th>
-                        <th class="w-10  text-center" style="width:10%">المدينة</th>
-                        <th class="w-10  text-center" style="width:10%">البريد الإلكتروني</th>
-                        <th class="min-w-100px text-center" style="width:10%">تاريخ الميلاد</th>
-                        <th class="min-w-100px text-center" style="width:10%">المهنة</th>
-                        <th class="min-w-100px text-center" style="width:10%">تاريخ الإضافة</th>
-                        <th class="min-w-100px text-center" style="width:10%">qr</th>
-                        <th class="min-w-124px text-center" style="width:30%">الإجراءات</th>
+                        <th class="  text-center"  style="width:5%">الإسم الزبون</th>
+                        <th class="text-center" style="width:10%">رقم الجوال</th>
+                        <th class="text-center" style="width:10%">رقم الهوية</th>
+                        <th class="text-center" style="width:10%">الحالة الإجتماعية</th>
+                        <th class="text-center" style="width:10%">المدينة</th>
+                        <th class="text-center" style="width:10%">البريد الإلكتروني</th>
+                        <th class="text-center" style="width:5%">تاريخ الميلاد</th>
+                        <th class="text-center" style="width:10%">المهنة</th>
+                        <th class=" text-center" style="width:10%">تاريخ الإضافة</th>
+                        <th class="text-center" style="width:10%">qr</th>
+                        <th class="text-center" style="width:10%">الإجراءات</th>
 
                     </tr>
 

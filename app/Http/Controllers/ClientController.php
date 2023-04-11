@@ -28,7 +28,7 @@ class ClientController extends Controller
                 ->addIndexColumn()
 
                 ->addColumn('action', function ($data) {
-                    $actionBtn = '<a href="' . route('users.edit', $data) . '" class="edit btn btn-icon   btn-light-primary  me-2 mb-2 py-3"><i class="fa fa-pen"></i></a>
+                    $actionBtn = '<a href="' . route('clients.edit', $data) . '" class="edit btn btn-icon   btn-light-primary  me-2 mb-2 py-3"><i class="fa fa-pen"></i></a>
 
                                     <a href="javascript:void(0)" data-id="' . $data->id . '"   class="delete btn btn-icon   btn-light-danger  me-2 mb-2 py-3"><i class="fa fa-trash"></i></a>';
                     return $actionBtn;
@@ -132,10 +132,11 @@ class ClientController extends Controller
 
     public function update(Request $request, Client $client)
     {
+
         $validator = Validator::make($request->all(), [
 
             'full_name'=>'required',
-            'id_number'=>"required|unique:clients,id_number",
+            'id_number'=>"required|unique:clients,id_number,".$client->id.',id',
             'type'=>'required|in:مؤسسة,أفراد,شركة',
             'marital_status'=>'required|in:متزوج,أعزب',
             'city'=>'required|in:جباليا,بني سهيلا,بيت حانون,بيت لاهيا,دير البلح,خانيونس,رفح,غزة',
@@ -143,9 +144,9 @@ class ClientController extends Controller
             'BOD'=>'date',
             'occupation'=>'required',
             'phone'=>'required',
-            'created_at'=>'required',
-            'updated_at'=>'required'
+
         ]);
+
 
         if ($validator->fails()) {
             return response()->json(['success' => false, 'message' => $validator->errors()->first()]);
@@ -153,9 +154,10 @@ class ClientController extends Controller
 
         $data=$request->except(['password']);
         $data['password']=Hash::make($request->password);
-        $user=Client::update($data);
 
-        if ($user){
+        $client=$client->update($data);
+
+        if ($client){
             return response()->json(['success' => true, 'message' => "تمت العملية بنجاح"]);
         }
         return response()->json(['success' => false, 'message' => " لم تتم العملية"]);

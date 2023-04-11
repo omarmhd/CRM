@@ -35,41 +35,5 @@ route::group(["middleware"=>'auth'],function (){
 
 });
 
-
-
-//route::group(['middleware'=>'auth','canAny:evaluator'],function (){
-//
-//    Route::get("",[\App\Http\Controllers\DashboardController::class,'index'])->name('dashboard');
-//
-//    Route::get("activated-surveys/newIndex",[\App\Http\Controllers\ActivatedSurveyController::class,'newIndex'])->name('activated-surveys.newIndex');
-//    Route::get("activated-surveys/evaluatedIndex",[\App\Http\Controllers\ActivatedSurveyController::class,'evaluatedIndex'])->name('activated-surveys.evaluatedIndex');
-//    Route::get("activated-surveys/acceptedIndex",[\App\Http\Controllers\ActivatedSurveyController::class,'acceptedIndex'])->name('activated-surveys.acceptedIndex');
-//    Route::get("activated-surveys/approvalIndex",[\App\Http\Controllers\ActivatedSurveyController::class,'approvalIndex'])->name('activated-surveys.approvalIndex');
-//    Route::get("activated-surveys/returnIndex",[\App\Http\Controllers\ActivatedSurveyController::class,'returnIndex'])->name('activated-surveys.returnIndex');
-//    Route::get("activated-surveys/needApprovalIndex",[\App\Http\Controllers\ActivatedSurveyController::class,'needApprovalIndex'])->name('activated-surveys.needApprovalIndex');
-//
-//    //:all activated survey
-//    Route::resource('activated-surveys',\App\Http\Controllers\ActivatedSurveyController::class)->only(['put','index','show']);
-//    Route::put("activated-surveys/evaluation/{activated_survey}",[\App\Http\Controllers\ActivatedSurveyController::class,'evaluation'])->name('evaluation.update');
-//
-//    //:change status
-//    Route::get("activated-surveys/{type?}/{id}",[\App\Http\Controllers\ActivatedSurveyController::class,'updateStatus'])->name('status.update');
-//
-////    Route::get("activated-surveys/employee-accepted/{id}",[\App\Http\Controllers\ActivatedSurveyController::class,'updateAccepted'])->name('accepted.update');
-//    Route::get("activated-surveys/approval/show/{id}",[\App\Http\Controllers\ActivatedSurveyController::class,'indexApprovalPage'])->name('approval.show');
-//
-//    /*end ::::::::::::::::activated surverys*/
-//
-//
-//    //Route::post('/employee',[\App\Http\Controllers\EmployeeController::class,'store'])->name('employee.store');
-//
-//
-//    Route::get('show-my-evaluation',[\App\Http\Controllers\UserController::class,'showMyEvaluation'])->name('showMyEvaluation');
-//
-//
-//
-//
-//});
-//Route::resource("/employee",EmployeeController::class);
 Auth::routes();
 

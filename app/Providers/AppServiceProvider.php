@@ -27,21 +27,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
-//        Gate::define('employee', function(User $user) {
-//            return $user->role == "employee";
-//        });
-//        Gate::define('administrator', function(User $user) {
-//            return $user->role == "administrator";
-//        });
-//        Gate::define('hr', function(User $user) {
-//            return $user->role == "hr";
-//        });
-//        Gate::define('evaluator', function(User $user) {
-//            return $user->role == "evaluator";
-//        });
-//        Gate::define('query', function(User $user) {
-//            return $user->role == "query";
-//        });
+        Gate::define('employee', function(User $user) {
+            return $user->role == "employee";
+        });
+        Gate::define('administrator', function(User $user) {
+            return $user->role == "administrator";
+        });
 
     }
 }
