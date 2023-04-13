@@ -22,6 +22,7 @@ class TransactionController extends Controller
      */
     public function index(Request  $request)
     {
+
         abort_if(Gate::none(['administrator']), 403);
 
         if ($request->ajax()) {
