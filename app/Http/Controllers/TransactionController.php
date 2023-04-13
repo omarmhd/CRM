@@ -46,6 +46,7 @@ class TransactionController extends Controller
      */
     public function create()
     {
+
      $clients=Client::all();
      return  view('transactions.create',compact("clients"));
 

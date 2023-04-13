@@ -14,7 +14,7 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     use SoftDeletes;
-    protected $fillable=['name',"email","full_name","role","password","created_at","updated_at"];
+    protected $fillable=['name',"email",'role',"full_name","password","created_at","updated_at"];
 
     public $timestamps = true;
 
@@ -22,7 +22,7 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-    protected $appends = ['department_name'];
+
 
 
     protected $casts = [
@@ -30,19 +30,5 @@ class User extends Authenticatable
 
     ];
 
-    public function department(){
-        return $this->belongsTo(Department::class)->withDefault();
-    }
 
-
-    public function getCreatedAtAttribute($value){
-
-        return date("Y-m-d",strtotime($value));
-
-    }
-
-    public function getDepartmentNameAttribute()
-    {
-        return $this->department->name;
-    }
 }

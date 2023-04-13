@@ -37,14 +37,15 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-    protected function redirectPath()
+
+    protected function authenticated($request, $user)
     {
-
         if (auth()->user()->role == 'employee') {
+            return redirect()->route("clients.create");
 
-            return "".route("clients.create")."";
+        } else {
+            return   redirect()->route('dashboard');
         }
-        return  "".route('dashboard')."";
     }
     public function username()
     {
