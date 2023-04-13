@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Client;
 use App\Models\Transaction;
 use App\Models\User;
 
@@ -21,6 +22,8 @@ class TransactionController extends Controller
      */
     public function index(Request  $request)
     {
+        abort_if(Gate::none(['administrator']), 403);
+
         if ($request->ajax()) {
             $data = Transaction::latest()->get();
             return DataTables::of($data)
@@ -43,7 +46,8 @@ class TransactionController extends Controller
      */
     public function create()
     {
-     return  view('transactions.create');
+     $clients=Client::all();
+     return  view('transactions.create',compact("clients"));
 
     }
 
@@ -58,7 +62,8 @@ class TransactionController extends Controller
 
         $validator = Validator::make($request->all(), [
             'client_id'=>"required|exists:clients,id",
-            'name'=>'required',
+            'id2'=>"sometimes|required|exists:clients,id",
+
             'type'=>'required|in:بيع,شراء,تبديل',
             'karat'=>'required|numeric',
             'wight'=>'required|numeric'

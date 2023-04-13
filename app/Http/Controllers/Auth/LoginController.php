@@ -40,6 +40,10 @@ class LoginController extends Controller
     protected function redirectPath()
     {
 
+        if (auth()->user()->role == 'employee') {
+
+            return "".route("clients.create")."";
+        }
         return  "".route('dashboard')."";
     }
     public function username()

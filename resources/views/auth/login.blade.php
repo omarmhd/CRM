@@ -34,7 +34,7 @@ License: For each use you must have a valid license purchased only from above li
                     <!--end::Logo-->
                     <!--begin::Title-->
                     <h1 class="fw-bolder fs-2qx pb-5 pb-md-10" style="color: #804475;">  تسجيل الدخول  </h1>
-                    <h3 class="" style="color: #804475;"> نظام النقاط  </h3>
+                    <h3 class="" style="color: #804475;">نظام إدارة الزبائن  </h3>
                     <!--end::Title-->
                     <!--begin::Description-->
 

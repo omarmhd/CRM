@@ -53,6 +53,19 @@
 @push('js')
     @include("parts.sweetCreate", ['route' => route('transactions.store'),'method'=>'post','redirect'=>route("transactions.index")])
 
+
+    <script src="{{asset("assets/js/select2.js")}}"></script>
+    <script>
+
+        $(function () {
+            $('.select2').on('change', function() {
+
+                $("#client_id").val($(this).val());
+            });
+
+        });
+
+    </script>
     @include("parts.searchID")
 
 

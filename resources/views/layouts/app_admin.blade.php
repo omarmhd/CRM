@@ -1,7 +1,7 @@
 <html lang="ar" dir="rtl" direction="rtl">
 <!--begin::Head-->
 <head>
-    <title>{{config('app.name')}} | @yield('sub_title')</title>
+    <title>نظام إدارة الزبائن</title>
     @include('layouts.includes.head')
 </head>
 <!--end::Head-->

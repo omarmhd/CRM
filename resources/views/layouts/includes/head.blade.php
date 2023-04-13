@@ -4,7 +4,7 @@
 <meta name="csrf-token" content="{{ csrf_token() }}"/>
 <link rel="canonical" href="{{config('app.url')}}"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<link rel="shortcut icon" href="{{asset("images/logo.png")}}">
+<link rel="shortcut icon" href="{{asset("images/five.png")}}">
 <!--begin::Fonts-->
 {{--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"/>--}}
 <link rel="stylesheet" href="{{asset("assets/css/toastr.css")}}">

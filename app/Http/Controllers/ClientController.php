@@ -6,6 +6,7 @@ use App\Models\Client;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
@@ -21,6 +22,8 @@ class ClientController extends Controller
      */
     public function index(Request $request)
     {
+        abort_if(Gate::none(['administrator']), 403);
+
         if ($request->ajax()) {
 
             $data = Client::latest()->get();
