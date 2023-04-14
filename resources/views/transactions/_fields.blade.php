@@ -20,9 +20,9 @@
                title=""></i>
         </label>
         <!--end::Label-->
-        <select  name="id2" class="js-example-matcher-start  js-states form-control  form-control-solid select2" id="select2-data-1-r80d"  data-select2-id="select2-data-1-r80d" tabindex="-1" aria-hidden="true">
+        <select  name="id2"  class="form-control form-control-solid" id="id2"  >
             @foreach($clients as $client)
-                <option value="{{$client->id}}">{{$client->full_name}}</option>
+                <option  value="{{$client->id}}">{{$client->full_name}}</option>
             @endforeach
         </select>
 
@@ -52,7 +52,7 @@
 
         <!--end::Label-->
         <input name="karat" id="name" type="text" class="form-control form-control-solid"
-               placeholder="karat"
+               placeholder="karat" rtl
 
 
 
@@ -91,7 +91,7 @@
         </label>
 
         <input id="price" type="number" class="form-control form-control-solid"
-               placeholder="رقم صحيح"
+               placeholder="رقم صحيح" rtl
                name="price" value="{{old("price")}}"/>
 
         <!--end::Label-->
