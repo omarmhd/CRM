@@ -8,6 +8,7 @@ use App\Models\Sms;
 use App\Notifications\VonageMessage;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
@@ -22,6 +23,7 @@ class SmsController extends Controller
      */
     public function index(Request  $request)
     {
+        abort_if(Gate::none(['administrator']), 403);
         if ($request->ajax()) {
 
             $data = Sms::latest()->get();

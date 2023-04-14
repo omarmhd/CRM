@@ -22,7 +22,9 @@
                 <!--end::Title-->
                 <!--begin::Description-->
                 <div class="text-gray-400 fw-bold fs-5">
-                    <a href="{{route('users.index')}}" class="fw-bolder link-primary">جميع المستخدمين</a>.
+                    @can("administrator")
+                        <a href="{{route('clients.index')}}" class="fw-bolder link-primary">جميع الزبائن</a>.
+                    @endcan
                 </div>
                 <!--end::Description-->
             </div>

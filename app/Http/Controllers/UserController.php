@@ -19,7 +19,7 @@ class UserController extends Controller
 {
     public function index(Request  $request)
     {
-
+        abort_if(Gate::none(['administrator']), 403);
         if ($request->ajax()) {
             $data = User::latest()->get();
             return DataTables::of($data)
