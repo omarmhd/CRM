@@ -5,7 +5,7 @@
         <!--begin::Copyright-->
         <div class="text-dark order-2 order-md-1">
 
-            <a href="" target="_blank" class="text-gray-800 text-hover-primary">ي</a>
+            <a href="" target="_blank" class="text-gray-800 text-hover-primary">جميع الحقوق محفوظة لشركة رامي الضابوس للمجوهرات </a>
             <span class="text-muted fw-bold me-1">©{{date("Y")}}</span>
         </div>
         <!--end::Copyright-->
