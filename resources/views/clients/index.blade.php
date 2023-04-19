@@ -103,5 +103,5 @@
     <script src="{{asset('assets/js/jquery.dataTables.min.js')}}"></script>
 
     @include('clients._datatable')
-    @include("parts.sweetDelete", ['route' => route('users.destroy', ['user' => ':id'])])
+    @include("parts.sweetDelete", ['route' => route('clients.destroy', ['client' => ':id'])])
 @endpush

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -171,6 +172,9 @@ class ClientController extends Controller
 
     public function destroy(Client $client)
     {
-        //
+
+        $client->delete();
+        return response()->json(['success' => true, 'message' => "تم الحذف بنجاح"]);
+
     }
 }
