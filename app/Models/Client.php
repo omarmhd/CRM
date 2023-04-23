@@ -12,4 +12,24 @@ class Client extends Model
     use SoftDeletes;
 
     protected $guarded=['_token'];
+
+
+
+    public  function transactions(){
+
+        return $this->hasMany(Transaction::class);
+
+    }
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($client) {
+            if ($client->transactions()->exists()) {
+                throw new \Exception('لا يمكن حذف زبون له حركات مالية');
+
+            }
+        });
+    }
+
 }

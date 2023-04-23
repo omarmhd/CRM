@@ -53,7 +53,14 @@
                         table.ajax.reload();
                     },
                     error: function(result) {
-                        alert('error');
+
+                        Swal.fire({
+                            position: 'top-center',
+                            icon:"error" ,
+                            text: result.message,
+                            showConfirmButton: false,
+                            timer: 1600
+                        })
                     }
                 });
 

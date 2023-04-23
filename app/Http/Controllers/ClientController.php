@@ -172,9 +172,13 @@ class ClientController extends Controller
 
     public function destroy(Client $client)
     {
+        try {
+            $client->delete();
+    } catch (\Exception $e) {
+        return response()->json(["status"=>"error",'message' => $e->getMessage()]);
+    }
 
-        $client->delete();
-        return response()->json(['success' => true, 'message' => "تم الحذف بنجاح"]);
+
 
     }
 }
