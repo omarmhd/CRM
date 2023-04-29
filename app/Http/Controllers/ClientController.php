@@ -178,6 +178,7 @@ class ClientController extends Controller
         return response()->json(["status"=>"error",'message' => $e->getMessage()]);
     }
 
+        return response()->json(["status"=>"success",'message' => "تم الحذف بنجاح"]);
 
 
     }

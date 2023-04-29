@@ -76,6 +76,14 @@
                             <span class="menu-title"> الحركات</span>
                         </a>
                     </div>
+                    <div class="menu-item">
+                        <a class="menu-link" href="#">
+										<span class="menu-icon">
+                                            <i class="fa fa-poll"></i>
+										</span>
+                            <span class="menu-title">إدارة  النقاط</span>
+                        </a>
+                    </div>
                 <div class="menu-item">
                     <a class="menu-link" href="{{route('sms.index')}}">
 										<span class="menu-icon">
