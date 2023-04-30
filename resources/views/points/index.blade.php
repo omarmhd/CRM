@@ -1,5 +1,5 @@
 @extends('layouts.app_admin')
-@section('title','الحركات المالية  ')
+@section('title','النقاط ')
 @section('toolbar.title','لوحة التحكم')
 @section('breadcrumb')
     <!--begin::Item-->
@@ -37,7 +37,7 @@
                 <!--begin::Toolbar-->
                 <div class="d-flex justify-content-end" data-table-toolbar="base">
 
-                    <a href="{{route('transactions.create')}}" class="btn btn-success "> إضافة  <i class="fa fa-plus"></i></a>
+{{--                    <a href="{{route('transactions.create')}}" class="btn btn-success "> إضافة  <i class="fa fa-plus"></i></a>--}}
 {{--                    <select name="status" data-control="select2" data-hide-search="true" data-placeholder="Export" class="form-select form-select-solid ">--}}
 {{--                        <option value="1">Excel</option>--}}
 {{--                        <option value="1">PDF</option>--}}
@@ -71,15 +71,11 @@
 
                     <tr class="fw-bolder  bg-secondary text-muted ">
                         <th class="w-10 text-center"  style="width:1%">#</th>
-                        <th class="w-10 text-center"  style="width:1%">رقم المعرف</th>
-                        <th class="w-10  text-center"  style="width:10%">اسم الزبون</th>
-                        <th class="w-10 text-center"  style="width:25%">النوع</th>
-                        <th class="w-10 text-center"  style="width:25%">النقاط</th>
-                        <th class="w-10  text-center" style="width:15%">السعر</th>
-                        <th class="w-10  text-center" style="width:15%">القراط</th>
-                        <th class="w-10  text-center" style="width:15%">الوزن</th>
+                        <th class="w-10 text-center"  style="width:1%">الزبون </th>
+                        <th class="w-10  text-center"  style="width:10%">النقاط</th>
+                        <th class="w-10 text-center"  style="width:25%">النقاط المستبدلة</th>
+                        <th class="w-10 text-center"  style="width:25%">المكافئات </th>
                         <th class="min-w-100px text-center" style="width:10%">تاريخ الإضافة</th>
-                        <th class="min-w-124px text-center" style="width:30%">الإجراءات</th>
 
                     </tr>
 
@@ -103,6 +99,5 @@
 @push('js')
     <script src="{{asset('assets/js/jquery.dataTables.min.js')}}"></script>
 
-    @include('transactions._datatable')
-    @include("parts.sweetDelete", ['route' => route('transactions.destroy', ['transaction' => ':id'])])
+    @include('points._datatable')
 @endpush

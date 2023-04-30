@@ -5,7 +5,7 @@
             processing: true,
             serverSide: true,
             searching: true,
-            ajax: "{{route('transactions.index')}}",
+            ajax: "{{route('point-awards.index')}}",
             language: {
                 "lengthMenu": "عرض _MENU_ صف في الصفحة",
                 "zeroRecords": "لم يتم إيجاد شيء",
@@ -18,15 +18,11 @@
             columns: [
 
                 { data: 'DT_RowIndex', 'orderable': true, 'searchable': false },
-                {data: 'client_id', name: 'client_id'},
-                {data: 'name', name: 'name'},
-                {data: 'type', name: 'type'},
+                {data: 'client', name: 'client'},
                 {data: 'points', name: 'points'},
-                {data: 'price', name: 'price'},
-                {data: 'karat', name: 'karat'},
-                {data: 'wight', name: 'wight'},
+                {data: 'redeemed_points', name: 'redeemed_points'},
+                {data: 'awards', name: 'awards'},
                 {data: 'created_at', name: 'created_at'},
-                {data: 'action', name: 'action', orderable: false, searchable: false},
             ]
 
         });

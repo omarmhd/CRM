@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Client;
+use App\Models\PointsAward;
+use App\Models\PointsAwards;
 use App\Models\Transaction;
 use App\Models\User;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -30,7 +33,7 @@ class TransactionController extends Controller
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($data) {
-                    $actionBtn = '<a href="' . route('users.edit', $data) . '" class="edit btn btn-icon   btn-light-primary  me-2 mb-2 py-3"><i class="fa fa-pen"></i></a>
+                    $actionBtn = '<a href="' . route('transactions.edit', $data) . '" class="edit btn btn-icon   btn-light-primary  me-2 mb-2 py-3"><i class="fa fa-pen"></i></a>
                                   <a href="javascript:void(0)" data-id="' . $data->id . '"   class="delete btn btn-icon   btn-light-danger  me-2 mb-2 py-3"><i class="fa fa-trash"></i></a>';
                     return $actionBtn;
                 })->rawColumns([ 'action'])->make(true);
@@ -49,7 +52,8 @@ class TransactionController extends Controller
     {
 
      $clients=Client::all();
-     return  view('transactions.create',compact("clients"));
+     $transaction=new Transaction();
+     return  view('transactions.create',compact("clients","transaction"));
 
     }
 
@@ -79,7 +83,21 @@ class TransactionController extends Controller
         }
 
 
-        $transction=Transaction::create($request->all());
+        $amount_point=DB::table("settings")->where("key","amount_point")->value("value");
+        $data=$request->all();
+
+        $data["points"]=$request->price>=$amount_point?$request->price/$amount_point:0;
+
+
+        if ($request->price>=$amount_point){
+            $transction=Transaction::create($data);
+            PointsAward::create([
+                "transaction_id"=>$transction->id,
+                "client_id"=>$transction->client_id,
+                "points"=>$request->price>=$amount_point?$request->price/$amount_point:0
+
+             ]);
+        }
 
         if ($transction){
             return response()->json(['success' => true, 'message' => "تمت العملية بنجاح"]);
@@ -104,7 +122,8 @@ class TransactionController extends Controller
         abort_if(Gate::none(['administrator']), 403);
 
         $transaction=Transaction::findorfail($id);
-        return view("admin.transactions.edit", compact("transaction"));
+        $clients=Client::all();
+        return view("transactions.edit", compact("transaction","clients"));
 
     }
     public function update(Request $request,$id)

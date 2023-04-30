@@ -16,7 +16,7 @@ class Transaction extends Model
     protected $casts = [
         'created_at'  => 'date:Y-m-d',];
     public function client(){
-        return $this->belongsTo(Client::class);
+        return $this->belongsTo(Client::class)->withDefault();
     }
 
     public function getNameAttribute() {

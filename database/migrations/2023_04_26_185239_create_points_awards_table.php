@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTransactionsTable extends Migration
+class CreatePointsAwardsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ class CreateTransactionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('transactions', function (Blueprint $table) {
+        Schema::create('points_awards', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("transaction_id")->constrained("transactions");
             $table->foreignId("client_id")->constrained("clients");
-            $table->enum("type",['بيع','شراء','تبديل']);
-            $table->integer("points")->default(0);
-            $table->double("price");
-            $table->integer("karat");
-            $table->float("wight");
-            $table->softDeletes();
+            $table->integer("points");
+            $table->integer("redeemed_points")->default(0);
+            $table->text("awards")->default(0);
             $table->timestamps();
         });
     }
@@ -33,6 +31,6 @@ class CreateTransactionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transactions');
+        Schema::dropIfExists('points_awards');
     }
 }
