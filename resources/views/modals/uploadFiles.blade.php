@@ -1,7 +1,5 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    أنقر هنا لتحميل الملفات
-</button>
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -34,10 +32,10 @@
                                 </label>
                                 <div class="controls">
                                     <div class="entry input-group upload-input-group">
-                                        <input class="form-control" name="files[]" type="file">
-                                        <button class="btn btn-upload btn-success btn-add" type="button">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
+                                        <input class="form-control" name="files" type="file">
+{{--                                        <button class="btn btn-upload btn-success btn-add" type="button">--}}
+{{--                                            <i class="fa fa-plus"></i>--}}
+{{--                                        </button>--}}
                                     </div>
 
                                 </div>
@@ -47,30 +45,14 @@
 
                         </div>
 
-                        <div class="col-12">
-                            <table
-                                class="table  table-bordered table-row-gray-300 align-middle gs-0 gy-3 border-1 text-center">
-
-                                <thead>
-                                <tr>
-                                    <td>اسم الملف</td>
-                                    <td>حالة التحميل</td>
-                                </tr>
-                                </thead>
-
-                                <tbody class="statuses">
 
 
-                                </tbody>
 
-                            </table>
-                        </div>
-
-
-                        <div class="col-12 alert-warning p-3">
+                        <div class="col-12 alert-warning p-3 mt-2">
                             <ul>
-                                <li style="line-height:20px">يجب أن لا يتجاوز حجم الملفات 2 ميجا.</li>
-                                <li style="line-height:20px"> أنواع الملفات التي يمكن تحميلها (pdf,xsl) فقط.</li>
+
+                                <li style="line-height:20px"> أنواع الملفات التي يمكن تحميلها (xsl) فقط.</li>
+                                <li style="line-height:20px">يتم ارفاق ملف اكسل حسب النموذج المرفق</li>
                             </ul>
                         </div>
 
@@ -144,7 +126,7 @@
                         return xhr;
                     },
                     type: 'POST',
-                    url: "{{route('utilization.order.file.uploadFiles')}}",
+                    url: "{{route('import-clients')}}",
                     data: formData,
                     cache: false,
                     contentType: false,
@@ -158,7 +140,7 @@
                             $(".print-error-msg").find("ul").html('');
                             $(".print-error-msg").css('display', 'block');
 
-                            $.each(data.error, function (key, value) {
+                            $.each(data.message, function (key, value) {
                                 $(".print-error-msg").find("ul").append('<li>' + value + '</li>');
                             });
 

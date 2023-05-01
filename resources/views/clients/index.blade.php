@@ -16,6 +16,7 @@
           type="text/css"/>
 @endpush
 @section('content')
+    @include("modals.uploadFiles")
 
 
     <!--begin::Tables Widget 13-->
@@ -36,7 +37,9 @@
             <div class="card-toolbar">
                 <!--begin::Toolbar-->
                 <div class="d-flex justify-content-end" data-table-toolbar="base">
-
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                           استيراد<i class="fa fa-file-excel"></i>
+                    </button>
                     <a href="{{route('clients.create')}}" class="btn btn-success "> إضافة زبون <i class="fa fa-plus"></i></a>
 
                 </div>

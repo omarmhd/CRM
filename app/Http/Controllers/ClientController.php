@@ -53,6 +53,33 @@ class ClientController extends Controller
 
     }
 
+    public function importExcelToDB(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'files' => 'required|mimes:xlsx'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['error' => true, 'message' => $validator->errors()]);
+        }
+        if($request->hasFile('files')){
+            $path = $request->file('files')->getRealPath();
+            $data = \Excel::import($path)->get();
+
+            if($data->count()){
+                foreach ($data as $key => $value) {
+                    $arr[] = ['topic_id' => $request->topic_id, 'question' => $value->question, 'a' => $value->a, 'b' => $value->b, 'c' => $value->c, 'd' => $value->d, 'answer' => $value->answer, 'code_snippet' => $value->code_snippet != '' ? $value->code_snippet : '-', 'answer_exp' => $value->answer_exp != '' ? $value->answer_exp : '-'];
+                }
+                if(!empty($arr)){
+                    \DB::table('questions')->insert($arr);
+                    return back()->with('added', 'Question Imported Successfully');
+                }
+                return back()->with('deleted', 'Your excel file is empty or its headers are not matched to question table fields');
+            }
+        }
+        return back()->with('deleted', 'Request data does not have any files to import');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

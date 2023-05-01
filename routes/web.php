@@ -25,11 +25,13 @@ route::group(["middleware"=>'auth'],function (){
 
     Route::get("/",[\App\Http\Controllers\DashboardController::class,'index'])->name('dashboard');
     Route::resource("/users",\App\Http\Controllers\UserController::class);
-
+    Route::post("/clients/import/excel",[\App\Http\Controllers\ClientController::class,"importExcelToDB"])->name("import-clients");
     Route::resource("/clients",\App\Http\Controllers\ClientController::class);
+
     Route::resource("/transactions",\App\Http\Controllers\TransactionController::class);
     Route::resource("/sms",\App\Http\Controllers\SmsController::class);
     Route::resource("/point-awards",\App\Http\Controllers\PointsAwardsController::class);
+
 
     Route::get("/search-client",[\App\Http\Controllers\ClientController::class,'search'])->name("search.client");
 
