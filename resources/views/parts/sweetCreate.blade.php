@@ -68,6 +68,11 @@
 
                     }
 
+                },
+                error: (data) => {
+                    $('.indicator-progress').hide();
+                    $('.indicator-label').show()
+                    $('#user_submit').prop("disabled", false);
                 }
 
 

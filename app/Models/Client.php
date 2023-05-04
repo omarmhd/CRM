@@ -10,7 +10,11 @@ class Client extends Model
 {
     use HasFactory;
     use SoftDeletes;
+    protected $casts = [
+        'created_at'  => 'date:Y-m-d',
+        'updated_at'=> 'date:Y-m-d',
 
+    ];
     protected $guarded=['_token'];
 
 

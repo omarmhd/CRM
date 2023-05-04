@@ -125,7 +125,7 @@
 
         <input id="" type="date" class="form-control form-control-solid"
                placeholder="تاريخ الميلاد"
-               name="date" value="{{old("BOD",$client->BOD)}}"/>
+               name="BOD" value="{{old("BOD",$client->BOD)}}"/>
 
         <!--end::Label-->
 

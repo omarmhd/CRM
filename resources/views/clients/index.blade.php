@@ -71,17 +71,17 @@
 
                     <tr class="fw-bolder  bg-secondary text-muted ">
                         <th class="w-10 text-center"  style="width:1%">#</th>
-                        <th class="  text-center"  style="width:5%">الإسم الزبون</th>
+                        <th class=" text-center"  style="width:5%">الإسم الزبون</th>
                         <th class="text-center" style="width:10%">رقم الجوال</th>
                         <th class="text-center" style="width:10%">رقم الهوية</th>
                         <th class="text-center" style="width:10%">الحالة الإجتماعية</th>
-                        <th class="text-center" style="width:10%">المدينة</th>
+                        <th class="text-center" style="width:5%">المدينة</th>
                         <th class="text-center" style="width:10%">البريد الإلكتروني</th>
                         <th class="text-center" style="width:5%">تاريخ الميلاد</th>
                         <th class="text-center" style="width:10%">المهنة</th>
                         <th class=" text-center" style="width:10%">تاريخ الإضافة</th>
                         <th class="text-center" style="width:10%">qr</th>
-                        <th class="text-center" style="width:10%">الإجراءات</th>
+                        <th class="text-center" style="width:20%">الإجراءات</th>
 
                     </tr>
 

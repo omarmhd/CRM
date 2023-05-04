@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use App\Models\PointsAward;
-use App\Models\PointsAwards;
+
 use App\Models\Transaction;
 use App\Models\User;
 
@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -88,15 +89,28 @@ class TransactionController extends Controller
 
         $data["points"]=$request->price>=$amount_point?$request->price/$amount_point:0;
 
-
+        $earned_points=$request->price/$amount_point;
         if ($request->price>=$amount_point){
             $transction=Transaction::create($data);
-            PointsAward::create([
+             $point_award= PointsAward::updateOrCreate(
+                 ["client_id"=>$transction->client_id],[
                 "transaction_id"=>$transction->id,
                 "client_id"=>$transction->client_id,
-                "points"=>$request->price>=$amount_point?$request->price/$amount_point:0
-
+                "points"=>DB::raw("points+$earned_points")
              ]);
+            $points=PointsAward::where("client_id",$transction->client_id)->value("points");
+
+
+            $response = Http::get('http://www.hotsms.ps/sendbulksms.php', [
+                'user_name' => 'Rami Dabous',
+                'user_pass' => '3324878',
+                'sender' =>'Rami Dabous',
+                'mobile' =>$point_award->client->phone,
+                'type' => 0,
+                'text' => "شكرًا لزيارتكم❤عدد نقاطك هي ".$points."نقطة لتقييم الخدمة اضغط هنا: (رابط رح اعمله)"
+            ]);
+
+
         }
 
         if ($transction){

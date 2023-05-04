@@ -70,16 +70,16 @@
                     <thead>
 
                     <tr class="fw-bolder  bg-secondary text-muted ">
-                        <th class="w-10 text-center"  style="width:1%">#</th>
-                        <th class="w-10 text-center"  style="width:1%">رقم المعرف</th>
-                        <th class="w-10  text-center"  style="width:10%">اسم الزبون</th>
-                        <th class="w-10 text-center"  style="width:25%">النوع</th>
-                        <th class="w-10 text-center"  style="width:25%">النقاط</th>
-                        <th class="w-10  text-center" style="width:15%">السعر</th>
-                        <th class="w-10  text-center" style="width:15%">القراط</th>
-                        <th class="w-10  text-center" style="width:15%">الوزن</th>
-                        <th class="min-w-100px text-center" style="width:10%">تاريخ الإضافة</th>
-                        <th class="min-w-124px text-center" style="width:30%">الإجراءات</th>
+                        <th class="text-center"  style="width:1%">#</th>
+                        <th class="text-center"  style="width:1%">رقم المعرف</th>
+                        <th class="text-center"  style="width:10%">اسم الزبون</th>
+                        <th class="text-center"  style="width:10%">النوع</th>
+                        <th class="text-center"  style="width:10%">النقاط</th>
+                        <th class="text-center" style="width:10%">السعر</th>
+                        <th class="text-center" style="width:10%">القراط</th>
+                        <th class="text-center" style="width:15%">الوزن</th>
+                        <th class="text-center" style="width:10%">تاريخ الإضافة</th>
+                        <th class="text-center" style="width:30%">الإجراءات</th>
 
                     </tr>
 

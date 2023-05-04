@@ -14,7 +14,10 @@ class Transaction extends Model
     protected $guarded=['_token'];
     protected $appends=["name"];
     protected $casts = [
-        'created_at'  => 'date:Y-m-d',];
+        'created_at'  => 'date:Y-m-d',
+        'updated_at'=> 'date:Y-m-d',
+
+    ];
     public function client(){
         return $this->belongsTo(Client::class)->withDefault();
     }

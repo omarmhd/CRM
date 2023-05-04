@@ -71,7 +71,7 @@
 
                     <tr class="fw-bolder  bg-secondary text-muted ">
                         <th class="w-10 text-center"  style="width:1%">#</th>
-                        <th class="w-10 text-center"  style="width:1%">الزبون </th>
+                        <th class="w-10 text-center"  style="width:20%">الزبون </th>
                         <th class="w-10  text-center"  style="width:10%">النقاط</th>
                         <th class="w-10 text-center"  style="width:25%">النقاط المستبدلة</th>
                         <th class="w-10 text-center"  style="width:25%">المكافئات </th>

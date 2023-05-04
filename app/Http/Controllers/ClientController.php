@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Yajra\DataTables\Facades\DataTables;
@@ -66,6 +67,7 @@ class ClientController extends Controller
             $path = $request->file('files')->getRealPath();
             $data = \Excel::import($path)->get();
 
+
             if($data->count()){
                 foreach ($data as $key => $value) {
                     $arr[] = ['topic_id' => $request->topic_id, 'question' => $value->question, 'a' => $value->a, 'b' => $value->b, 'c' => $value->c, 'd' => $value->d, 'answer' => $value->answer, 'code_snippet' => $value->code_snippet != '' ? $value->code_snippet : '-', 'answer_exp' => $value->answer_exp != '' ? $value->answer_exp : '-'];
@@ -108,7 +110,7 @@ class ClientController extends Controller
             'marital_status'=>'required|in:متزوج,أعزب',
             'city'=>'required|in:جباليا,بني سهيلا,بيت حانون,بيت لاهيا,دير البلح,خانيونس,رفح,غزة',
             'email'=>'required',
-            'BOD'=>'date',
+            'BOD'=>'required|date',
             'occupation'=>'required',
             'phone'=>'required',
 
@@ -120,9 +122,16 @@ class ClientController extends Controller
 
         $data=$request->except(['password']);
         $data['password']=Hash::make($request->password);
-        $user=Client::create($data);
-
-        if ($user){
+        $client=Client::create($data);
+        $response = Http::get('http://www.hotsms.ps/sendbulksms.php', [
+            'user_name' => 'Rami Dabous',
+            'user_pass' => '3324878',
+            'sender' =>'Rami Dabous',
+            'mobile' =>$client->phone,
+            'type' => 0,
+            'text' => "أهلًا وسهلًا بك في صالة عرض مجوهرات رامي الضابوس، نسعد بخدمتكم❤"
+        ]);
+        if ($client){
             return response()->json(['success' => true, 'message' => "تمت العملية بنجاح"]);
         }
         return response()->json(['success' => false, 'message' => " لم تتم العملية"]);
@@ -173,7 +182,7 @@ class ClientController extends Controller
             'marital_status'=>'required|in:متزوج,أعزب',
             'city'=>'required|in:جباليا,بني سهيلا,بيت حانون,بيت لاهيا,دير البلح,خانيونس,رفح,غزة',
             'email'=>'required',
-            'BOD'=>'date',
+            'BOD'=>'required|date',
             'occupation'=>'required',
             'phone'=>'required',
 
