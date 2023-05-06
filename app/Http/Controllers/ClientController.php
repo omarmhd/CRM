@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
+use Milon\Barcode\DNS1D;
+use Milon\Barcode\Facades\DNS1DFacade;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Yajra\DataTables\Facades\DataTables;
 use function PHPUnit\Framework\isEmpty;
@@ -34,15 +36,17 @@ class ClientController extends Controller
 
                 ->addColumn('action', function ($data) {
                     $actionBtn = '<a href="' . route('clients.edit', $data) . '" class="edit btn btn-icon   btn-light-primary  me-2 mb-2 py-3"><i class="fa fa-pen"></i></a>
-
                                     <a href="javascript:void(0)" data-id="' . $data->id . '"   class="delete btn btn-icon   btn-light-danger  me-2 mb-2 py-3"><i class="fa fa-trash"></i></a>';
                     return $actionBtn;
                 })
                 ->addcolumn('qr',function ($data){
-                    $png = QrCode::format('png')->size(100)->generate($data->id);
-                    $png = base64_encode($png);
+                    $barcode = new DNS1D();
+//                    $png = QrCode::format('png')->size(100)->generate($data->id);
+//                    $png = base64_encode($png);
 
-                    return "<a href='data:image/png;base64," . $png . "' download=".$data->full_name." ><img style='width:30px' src='data:image/png;base64," . $png . "'> </a>";
+
+                    return  '<a href="data:image/png;base64,' .$barcode->getBarcodePNG("$data->id", "C39") . '" download="qr-'.$data->full_name.'" ><img src="data:image/png;base64,' .$barcode->getBarcodePNG("$data->id", "C39") . '" alt="barcode"   /></a>';
+;;
 
                 })
 

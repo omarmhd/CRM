@@ -39,7 +39,8 @@
                 <div class="text-center mt-20 ms-20 mb-20">
                     <button type="submit" id="user_submit" class="btn btn-primary">
                         <span class="indicator-label"><i class="fa fa-save"></i> حفظ </span>
-
+                        <span class="indicator-progress">الرجاء الإنتظار...
+                            <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                     </button>
 
                     <button type="reset" id="user_cancel" class="btn btn-white me-3">إلغاء</button>
