@@ -42,7 +42,7 @@
 
                     </button>
 
-                    <button type="reset" id="user_cancel" class="btn btn-white me-3">إلغاء</button>
+                    <a href="{{route("points.index")}}" class="btn btn-white me-3"> <i class="fa fa-"></i>إلغاء</a>
                 </div>
                 <!--end::Actions-->
             </form>

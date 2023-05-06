@@ -43,7 +43,7 @@
                             <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                     </button>
 
-                    <button type="reset" id="user_cancel" class="btn btn-white me-3">إلغاء</button>
+                    <a href="{{route("transactions.index")}}" class="btn btn-white me-3">إلغاء</a>
                 </div>
                 <!--end::Actions-->
             </form>

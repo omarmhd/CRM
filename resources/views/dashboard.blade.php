@@ -79,7 +79,7 @@
                     <!--end::Section-->
                     <!--begin::Badge-->
                     <span class="">
-                        <a href="{{route("transactions.index")}}">{{$clients}}</a>
+                        <a href="{{route("clients.index")}}">{{$clients}}</a>
                         <!--begin::Svg Icon | path: icons/duotune/arrows/arr066.svg-->
 
                         <!--end::Svg Icon--></span>

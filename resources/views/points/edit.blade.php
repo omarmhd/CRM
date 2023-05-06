@@ -43,8 +43,8 @@
                         <span class="indicator-progress">الرجاء الإنتظار...
                             <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                     </button>
-                    <a href="{{route("transactions.index")}}" class="btn btn-secondary"> <i class="fa fa-"></i>عودة</a>
-                    <button type="reset" id="user_cancel" class="btn btn-white me-3">إلغاء</button>
+                    <a href="{{route("points.index")}}" class="btn btn-white me-3"> <i class="fa fa-"></i>إلغاء</a>
+
                 </div>
                 <!--end::Actions-->
             </form>
