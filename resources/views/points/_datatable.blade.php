@@ -22,7 +22,9 @@
                 {data: 'points', name: 'points'},
                 {data: 'redeemed_points', name: 'redeemed_points'},
                 {data: 'awards', name: 'awards'},
+
                 {data: 'created_at', name: 'created_at'},
+                {data:'action',name: 'action'},
             ]
 
         });

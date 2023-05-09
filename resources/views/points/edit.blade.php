@@ -1,5 +1,5 @@
 @extends('layouts.app_admin')
-@section('title','تعديل حركة')
+@section('title','استبدال النقاط')
 @section('toolbar.title','لوحة التحكم')
 @section('breadcrumb')
     <!--begin::Item-->
@@ -22,9 +22,7 @@
                 <!--end::Title-->
                 <!--begin::Description-->
                 <div class="text-gray-400 fw-bold fs-5">
-                    @can("administrator")
-                    <a href="{{route('transactions.index')}}" class="fw-bolder link-primary">جميع الحركات</a>.
-                    @endcan
+
                 </div>
                 <!--end::Description-->
             </div>
@@ -34,7 +32,7 @@
             @csrf
             <!--begin::Input group-->
 
-                @include('transactions._fields')
+                @include('points._fields')
 
 
                 <div class="text-center mt-20 ms-20 mb-20">
@@ -43,7 +41,7 @@
                         <span class="indicator-progress">الرجاء الإنتظار...
                             <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                     </button>
-                    <a href="{{route("points.index")}}" class="btn btn-white me-3"> <i class="fa fa-"></i>إلغاء</a>
+{{--                    <a href="{{route("points.index")}}" class="btn btn-white me-3"> <i class="fa fa-"></i>إلغاء</a>--}}
 
                 </div>
                 <!--end::Actions-->
@@ -55,7 +53,7 @@
     <!--end::Form Widget 13-->
 @endsection
 @push('js')
-    @include("parts.sweetCreate", ['route' => route('transactions.update',['transaction' => $transaction]),'method'=>'put',"redirect"=>route("transactions.index")])
+    @include("parts.sweetCreate", ['route' => route('point-awards.update',$pointAward),'method'=>'put',"redirect"=>route("point-awards.index")])
 
 @endpush
 

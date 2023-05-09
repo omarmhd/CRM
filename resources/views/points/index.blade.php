@@ -76,6 +76,7 @@
                         <th class="w-10 text-center"  style="width:25%">النقاط المستبدلة</th>
                         <th class="w-10 text-center"  style="width:25%">المكافئات </th>
                         <th class="min-w-100px text-center" style="width:10%">تاريخ الإضافة</th>
+                        <th class="w-10 text-center"  style="width:25%">الاجراءات </th>
 
                     </tr>
 
