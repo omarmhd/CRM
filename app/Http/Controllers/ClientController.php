@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
+use Maatwebsite\Excel\Excel;
 use Milon\Barcode\DNS1D;
 use Milon\Barcode\Facades\DNS1DFacade;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
@@ -69,15 +70,16 @@ class ClientController extends Controller
         }
         if($request->hasFile('files')){
             $path = $request->file('files')->getRealPath();
-            $data = \Excel::import($path)->get();
-
+            $data = \Maatwebsite\Excel\Facades\Excel::toCollection(new Client(), $path);
+//            $data = $import->getData(); // Assuming the import class has a method named getData()
 
             if($data->count()){
                 foreach ($data as $key => $value) {
-                    $arr[] = ['topic_id' => $request->topic_id, 'question' => $value->question, 'a' => $value->a, 'b' => $value->b, 'c' => $value->c, 'd' => $value->d, 'answer' => $value->answer, 'code_snippet' => $value->code_snippet != '' ? $value->code_snippet : '-', 'answer_exp' => $value->answer_exp != '' ? $value->answer_exp : '-'];
+
+                    $arr[] = ['full_name' => $value[0][0], 'id_number' => $value[0][1], 'marital_status' => $value[0][2], 'city' => $value[0][3], 'email' => $value[0][4], 'BOD' => $value[0][5], 'occupation' => $value[0][6], 'phone' => $value[0][7]];
                 }
                 if(!empty($arr)){
-                    \DB::table('questions')->insert($arr);
+                    \DB::table('clients')->insert($arr);
                     return back()->with('added', 'Question Imported Successfully');
                 }
                 return back()->with('deleted', 'Your excel file is empty or its headers are not matched to question table fields');
