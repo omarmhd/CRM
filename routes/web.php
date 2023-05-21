@@ -30,8 +30,9 @@ route::group(["middleware"=>'auth'],function (){
 
     Route::resource("/transactions",\App\Http\Controllers\TransactionController::class);
     Route::resource("/sms",\App\Http\Controllers\SmsController::class);
-    Route::resource("/point-awards",\App\Http\Controllers\PointsAwardsController::class);
+    Route::post("/sms-draft",[\App\Http\Controllers\SmsController::class,"saveDraft"])->name("sava.draft");
 
+    Route::resource("/point-awards",\App\Http\Controllers\PointsAwardsController::class);
 
     Route::get("/search-client",[\App\Http\Controllers\ClientController::class,'search'])->name("search.client");
 

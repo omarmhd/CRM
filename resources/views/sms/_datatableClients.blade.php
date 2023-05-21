@@ -5,7 +5,7 @@
             processing: true,
             serverSide: true,
             searching: true,
-            ajax: "{{route('sms.index')}}",
+            ajax: "{{route('sms.edit',$sms)}}",
             language: {
                 "lengthMenu": "عرض _MENU_ صف في الصفحة",
                 "zeroRecords": "لم يتم إيجاد شيء",
@@ -19,16 +19,10 @@
 
 
 
-                {data: 'DT_RowIndex', 'orderable': true, 'searchable': false },
-
-                {data: 'title', name: 'title'},
-                {data: 'sender', name: 'sender'},
-                {data: 'content', name: 'content'},
-                {data: 'created_at', name: 'created_at'},
-                {data: 'send_status', name: 'send_status'},
-
-                {data: 'action', name: 'action'}
-
+                { data: 'DT_RowIndex', 'orderable': true, 'searchable': false },
+                { data: 'checkbox',name:'checkbox'},
+                {data: 'full_name', name: 'full_name'},
+                {data: 'phone', name: 'phone'},
             ]
 
         });

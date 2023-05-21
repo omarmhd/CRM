@@ -19,33 +19,35 @@
 
 
     <!--begin::Tables Widget 13-->
-    <div class="card ">
+    <form id="form1" class="form" method="POST" action="javascript:void(0)">
+
+        @method("put")
+    <div class="card">
         <!--begin::Card header-->
 
 
 
-        <div class=" border-0 p-6">
-            <form class="row" action="{{route("sava.draft")}}" method="post">
-                @csrf
+        <div class="row p-3">
+
                 <div class="col-md-4">
-                    <input name="title" placeholder="الهدف من رسالة" type="text" class="form-control form-control-solid">
+                    <input name="title" placeholder="الهدف من رسالة" type="text" value="{{$sms->title}}" class="form-control form-control-solid">
                 </div>
                 <div class="col-md-4">
 
-                            <textarea name="content" class="form-control form-control-solid" placeholder="المحتوى"  id="" ></textarea>
+                    <textarea name="content" class="form-control form-control-solid" placeholder="المحتوى"  id="" >{{$sms->content}}</textarea>
                 </div>
                 <div class="col-md-4">
-                    <button type="submit"class="btn btn-success "> حفظ رسالة  <i class="fa fa-save"></i></button>
+                    <button type="submit"class="btn btn-primary ">ارسال <i class="fa fa-sms"></i></button>
                 </div>
-            </form>
+
 
             <!--begin::Card title-->
-{{--            <div class="card-title">--}}
-{{--                جدول البيانات--}}
+        {{--            <div class="card-title">--}}
+        {{--                جدول البيانات--}}
 
 
-{{--            </div>--}}
-            <!--begin::Card title-->
+        {{--            </div>--}}
+        <!--begin::Card title-->
             <!--begin::Card toolbar-->
 
             <!--end::Card toolbar-->
@@ -56,19 +58,17 @@
             <!--begin::Table container-->
             <div class="table-responsive">
 
-            <!--begin::Table-->
+                <!--begin::Table-->
                 <table id="table_id"
                        class="table table-bordered table-hover table-row-gray-300 align-middle gs-0 gy-3 border-1 text-center fs-7">
                     <!--begin::Table head-->
                     <thead>
                     <tr class="fw-bolder  bg-secondary text-muted ">
                         <th class="w-10 text-center"  style="width:1%">#</th>
-                        <th class="w-10 text-center"  style="width:1%">الهدف من الرسالة</th>
-                        <th class="w-10  text-center"  style="width:10%">المرسل</th>
-                        <th class="w-10  text-center"  style="width:10%">المحتوى</th>
-                        <th class="min-w-100px text-center" style="width:10%">تاريخ الارسال</th>
-                        <th class="min-w-100px text-center" style="width:10%">حالة الارسال</th>
-                        <th class="min-w-100px text-center" style="width:10%"></th>
+                        <th class="w-10 text-center"  style="width:1%"></th>
+                        <th class="w-10  text-center"  style="width:10%">الاسم</th>
+                        <th class="w-10  text-center"  style="width:10%">الجوال</th>
+
 
 
                     </tr>
@@ -87,11 +87,13 @@
         </div>
         <!--begin::Body-->
     </div>
+    </form>
     <!--end::Tables Widget 13-->
 @endsection
 
 @push('js')
     <script src="{{asset('assets/js/jquery.dataTables.min.js')}}"></script>
+    @include("parts.sweetCreate", ['route' => route('sms.update',['sms' => $sms]),'method'=>'put',"redirect"=>route("sms.index")])
 
-    @include('sms._datatable')
+    @include('sms._datatableClients',["sms"=>$sms])
 @endpush
