@@ -107,7 +107,7 @@ class TransactionController extends Controller
                 'sender' =>'Rami Dabous',
                 'mobile' =>$point_award->client->phone,
                 'type' => 0,
-                'text' => "شكرًا لزيارتكم❤عدد نقاطك هي ".$points."نقطة لتقييم الخدمة اضغط هنا: (رابط رح اعمله)"
+                'text' => "شكرًا لزيارتكم❤عدد نقاطك هي ".$points."نقطة لتقييم الخدمة اضغط هنا: (https://bit.ly/RamiDabous)"
             ]);
 
 
